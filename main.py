@@ -46,9 +46,9 @@ while True:
     record_b = get_record(data)  
     avoid_same_record(record_a, record_b)
     
-    answer=input("Who has more followers? Type 'A' or 'B': ")
+    guess=input("Who has more followers? Type 'A' or 'B': ")
     
-    if answer.upper()=="A":
+    if guess.upper()=="A":
         if record_a["follower_count"] > record_b["follower_count"]:
             current_score+=1
             print(f"Congratulations! You are correct. {record_a['name']} has more followers than {record_b['name']}.  Current score: {current_score}")
@@ -59,7 +59,7 @@ while True:
             final_score=current_score
             print(f"Sorry, that's wrong. Final score: {final_score}")
             break 
-    elif answer.upper()=="B":
+    elif guess.upper()=="B":
         if record_a["follower_count"] < record_b["follower_count"]:
             current_score+=1
             #print new line to clear the previous output
