@@ -8,16 +8,22 @@ print(logo)
 def get_record(data):
     return random.choice(data)
 
+def format_data(account):
+    """Takes the account data and returns the printable format."""
+    account_name=account["name"]
+    account_descr = account["description"]
+    account_country = account["country"]
+    return f"{account_name}, a {account_descr}, from {account['country']}."
 
 #write a function to compare results
 def avoid_same_record(record_a, record_b):
      # make sure there are no duplicate records
     if record_a==record_b:
         record_b = get_record(data)  
-        print(f"Against B: {record_b['name']}, a {record_b['description']}, from {record_b['country']}.")
+        print(f"Against B: {format_data(record_b)}.")
 
     else:
-         print(f"Against B: {record_b['name']}, a {record_b['description']}, from {record_b['country']}.")
+         print(f"Against B: {format_data(record_b)}.")
 
 current_score=0
 final_score=0
@@ -25,7 +31,7 @@ final_score=0
 while True:
     record_a = get_record(data)  
     #print(record_a)
-    print(f"Compare A: {record_a['name']}, a {record_a['description']}, from {record_a['country']}.")
+    print(f"Compare A: {format_data(record_a)}.")
     print(vs)
     record_b = get_record(data)  
     avoid_same_record(record_a, record_b)
